@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<templates xml:space="preserve">
+
+    <t t-name="owl_playground.Todo" owl="1">
+        <li t-attf-class="text-muted {{ props.done ? 'text-decoration-line-through' : '' }}">
+            <span class="p-1">
+                <input type="checkbox"
+                       t-attf-checked="{{ props.done }}"
+                       t-on-click="onToggleDone"
+                       t-ref="taskCheckbox"/>
+            </span>
+            <span>
+                <t t-esc="props.id+1"/>. <t t-esc="props.description"/>
+            </span>
+            <span class="fa fa-remove text-danger p-1" t-on-click="onRemove"/>
+        </li>
+    </t>
+
+</templates>

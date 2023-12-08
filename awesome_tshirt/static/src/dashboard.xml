@@ -2,7 +2,27 @@
 <templates xml:space="preserve">
 
     <t t-name="awesome_tshirt.clientaction" owl="1">
-
+        <Layout display="display">
+            <t t-set-slot="control-panel-bottom-left">
+                <button class="btn btn-primary" t-on-click="openCustomersView">Customers</button>
+                <button class="btn btn-primary" t-on-click="openLast7DaysOrders">New Orders</button>
+                <button class="btn btn-primary" t-on-click="openCancelledOrdersLast7Days">Cancelled Orders</button>
+            </t>
+        </Layout>
+        <div class="container-fluid mt-5">
+            <div class="row g-5">
+                <t t-foreach="cards" t-as="card" t-key="card.id">
+                    <div class="col-3">
+                        <Card chartData="card.chartData">
+                            <t t-set-slot="title"><t t-esc="card.title"/></t>
+                            <t t-set-slot="content">
+                                <t t-if="card.chartData" t-esc=""/>
+                                <t t-else="" t-esc="card.content"/>
+                        </Card>
+                    </div>
+                </t>
+            </div>
+        </div>
     </t>
 
 </templates>

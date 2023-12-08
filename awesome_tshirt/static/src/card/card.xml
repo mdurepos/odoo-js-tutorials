@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="awesome_tshirt.card" owl="1">
+        <div t-attf-class="card {{ props.classes ? props.classes : '' }}">
+            <div class="card-body">
+                <h5 class="card-title"><span t-slot="title" t-if="props.slots.title">Card title</span></h5>
+                <div t-if="props.chartData">
+                    <PieChart data="props.chartData"/>
+                </div>
+                    <p class="card-text">
+                        <span t-slot="content"/>
+                    </p>
+                </t>
+            </div>
+        </div>
+    </t>
+</templates>
